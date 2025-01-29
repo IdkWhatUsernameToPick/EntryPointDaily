@@ -1,2 +1,10 @@
 # EntryPointDaily
-Checks for the daily challenge and asks you if you'd like to play.
+Checks for the daily challenge and asks if you want to play.
+
+How-to:
+1. Install Python.
+2. Type "pip install " followed by the dependency you want to install (required: requests, beautifulsoup4, lxml) in the command prompt (cmd).
+3. Launch the program.
+4. In case it doesn't work run it in the command prompt and look for any errors.
+
+I **may** add a timer in the future as well as it automatically getting the new daily once it changes without having to close the process.
