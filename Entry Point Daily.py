@@ -12,7 +12,7 @@ if response.status_code != 200:
     exit()
 
 soup = BeautifulSoup(response.text, "lxml")
-challenge_table = soup.find("table", class_="article-table")
+challenge_table = soup.select_one(".content-box-content table.article-table")
 
 if not challenge_table:
     print("Failed to retrieve the Daily Challenge.")
@@ -27,7 +27,6 @@ modifiers = [
     if mod.get_text(strip=True) != mission_text
 ]
 
-# Special case correction
 if mission_text == "The Scientist" and modifiers == ["No Suppressors", "Hidden UI", "No Knockouts"]:
     modifiers = ["Fog", "No Suppressors", "Hidden UI"]
 elif mission_text == "The Scientist" and "No Suppressors" in modifiers[:2] and len(modifiers) == 3 and modifiers[2] == "No Knockouts":
@@ -38,7 +37,7 @@ print(f"🎯 Mission: {mission_text}")
 print(f"⚠️ Modifiers: {', '.join(modifiers) if modifiers else 'None'}")
 
 if input("\nDo you want to launch Entry Point in Roblox? (y/n): ").strip().lower() == "y":
-    webbrowser.open("roblox://placeId=740581508")
     print("Launching Entry Point...")
+    webbrowser.open("roblox://placeId=740581508")
 else:
     print("Exiting script.")
